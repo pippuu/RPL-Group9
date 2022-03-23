@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+ html {
+    background-color: #FF7A00;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+  .bg-login {
+    height: 320px;
+    width: 320px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: 27px;
+    margin-top: 50%;
+  }
+  #t-login {
+    color: #FF7A00;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 15px;
+  }
+  #t-username {
+    color: #FF7A00;
+    font-size: 20px;
+    font-weight: normal;
+    position: absolute;
+    left: 28px;
+    top: 22%;
+  }
+  
+  #t-password {
+    color: #FF7A00;
+    font-size: 20px;
+    font-weight: normal;
+    position: absolute;
+    left: 28px;
+    top: 45%;
+  }
+  .Input-text {
+    display: block;
+    margin: 0;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 85%;
+    height:inherit;
+    font-family: inherit;
+    font-size: var(--inputFontSize);
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    transition: box-shadow var(--transitionDuration);
+  }
+  #input_username {
+    position: absolute;
+    top: 35%;
+    left: 7%;
+  }
+  #input_password {
+    position: absolute;
+    top: 58%;
+    left: 7%;
+  }
+  /*--------------Login - Button*/
+  #text-4 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  #button-login {
+    position: absolute;
+    left: 35%;
+    top: 80%;
+    background-color: #FF7A00;
+    color: white;
+    text-shadow: 30%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 20px;
+    min-width: 110px;
+  }
+  #button-login:hover {
+    transition: 0.5s;
+    background-color: #FF7A00;
+  }
+  
+  
+/*-----------------Landing Page*/
+.landing {
+    background-color: #FF7A00;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}

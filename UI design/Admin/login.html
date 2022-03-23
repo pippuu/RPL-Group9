@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>UI Admin</title>
+        <style>
+            .content {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            .Input-text {
+                display: block;
+                margin: 0;
+                padding: var(--inputPaddingV) var(--inputPaddingH);
+                color: inherit;
+                width: 85%;
+                height:inherit;
+                font-family: inherit;
+                font-size: var(--inputFontSize);
+                font-weight: inherit;
+                line-height: var(--inputLineHeight);
+                border: none;
+                border-radius: 0.4rem;
+                transition: box-shadow var(--transitionDuration);
+                text-decoration: underline;
+                border-bottom: 1px black;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body style="background-color: #FF7A00;">
+        <div class="container" style="padding: 50px">
+            <div class="d-flex" style="margin-left: 410px;">
+                <div class="text-center"><img class="text-center" src="pics/linkLogo.png" alt="logo"></div>    
+                <h1 style="color: white; margin-left: 10px;">LINKAE</h1>
+            </div>
+            <div class="container mt-5 p-3" style="border-radius: 5px; background-color: white; width: 500px">
+                <p class="text-center" style="color: #FF7A00;">Login as Admin</p>
+                <p class="content" style="color: #FF7A00">Username</p>
+                <input type="text" id="input_username" class="Input-text" placeholder="&nbsp;"  />
+                <p class="content" style="color: #FF7A00">Password</p>
+                <input type="password" id="input_password" class="Input-text" placeholder="&nbsp;" />
+            </div>
+        </div>
+        <div class="text-center">
+            <button style="border-left: 600px; border-radius: 0.4rem; border: none; height: 30px; width: 100px; color: #FF7A00;">
+                Login
+            </button>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
