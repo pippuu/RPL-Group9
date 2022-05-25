@@ -1,0 +1,16 @@
+.form-group{
+    top:5%;
+    border: 1px solid black;
+    position: absolute;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#search{
+    width: 400%;
+    border-radius: 10px;
+}
+
+.bg_container{
+    height: 12rem;
+    background-color: #FF7A00;
+}

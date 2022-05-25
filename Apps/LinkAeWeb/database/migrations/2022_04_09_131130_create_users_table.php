@@ -7,17 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
-     *
+     * Menjalankan migrasi ke database, dengan kolom-kolom untuk tabel user yang dimiliki adah sebagai berikut     *
      * @return void
      */
     public function up()
     {
+        // Memploting nama beserta tipe data ke kolom-kolom users ke database
         Schema::create('users', function (Blueprint $table) {
             $table->id('id_user');
             $table->string('nama');
             $table->string('username');
             $table->string('password');
+            $table->integer('saldo');
             $table->timestamps();
         });
     }

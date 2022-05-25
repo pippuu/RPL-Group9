@@ -7,22 +7,23 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Menjalankan migrasi database.
      *
      * @return void
      */
     public function up()
     {
+        //pembuatan tabel admins pada database dengan kolomnya
         Schema::create('admins', function (Blueprint $table) {
-            $table->id('id_admin');
-            $table->string('username');
-            $table->string('password');
-            $table->timestamps();
+            $table->id('id_admin'); //kolom id_admin
+            $table->string('username'); //kolom username
+            $table->string('password'); //kolom password 
+            $table->timestamps(); 
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Mengembalikan migrasi database.
      *
      * @return void
      */
