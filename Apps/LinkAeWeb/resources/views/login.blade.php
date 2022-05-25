@@ -26,7 +26,7 @@
             </div>
         </div> -->
         <div class="flex items-center justify-center min-h-screen" style="background-color: #FF7A00">
-            <div class="px-8 py-6 mt-1 text-left bg-white shadow-lg rounded">
+            <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded">
                 <h3 class="text-2xl font-bold text-center">Login to your account</h3>
                 <form action="">
                     <div class="mt-4">
