@@ -62,6 +62,7 @@ Route::get('/sketsa/buat-akun', function () {
 Route::get('/sketsa/transaksi', function () {
   return view('sketsa-transaksi');
 });
+Route::post('/sketsa/transaksi/konfirmasi', [TransaksiController::class, 'create']);
 
 Route::get('/sketsa/transfer', function () {
   return view('sketsa-transfer');

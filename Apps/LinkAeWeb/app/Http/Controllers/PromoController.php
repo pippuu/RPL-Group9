@@ -96,7 +96,7 @@ class PromoController extends Controller
      */
     public function update($idPromo)
     {
-        Promo::where('id_promo', $idPromo)->update(['id_user' => '213']);
+        Promo::where('id_promo', $idPromo)->update(['id_user' => '1']);
 
         return redirect()->back();
     }

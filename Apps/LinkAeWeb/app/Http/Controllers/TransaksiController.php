@@ -36,9 +36,9 @@ class TransaksiController extends Controller
     {
         // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
         $transaksi = new Transaksi;
-        $transaksi->id_user = $request->id_user;
+        $transaksi->id_user = '1';
         $transaksi->tipe = $request->tipe;
-        $transaksi->waktu = $request->waktu;
+        $transaksi->waktu = '2/6/22';
         $transaksi->nominal = $request->nominal;
 
         // penyimpanan data tersebut ke database

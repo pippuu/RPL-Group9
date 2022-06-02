@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
             // $table->nullable()->unsignedBigInteger('id_user');
 
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable(true);
 
             $table->foreign('id_admin')->references('id_admin')->on('admins');
         });

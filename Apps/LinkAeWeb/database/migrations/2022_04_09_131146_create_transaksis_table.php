@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tipe');
             $table->date('waktu');
             $table->integer('nominal');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable(true);
             $table->timestamps();
 
             // kolom 'id_user' merupakan foreign key yang merujuk ke 'id_user pada tabel users'

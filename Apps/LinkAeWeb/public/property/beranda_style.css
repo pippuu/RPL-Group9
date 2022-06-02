@@ -6,11 +6,44 @@
     margin-right: 5%;
 }
 #search{
-    width: 400%;
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height:40px;      
     border-radius: 10px;
 }
-
+#logo{
+    height: 100px;
+    position: fixed;
+    right: 40px;
+    top: 120px;
+    filter: brightness(0.70);
+}
+#nama{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.Identity{
+    height: 100px;
+    position: fixed;
+    left: 20px;
+    top: 140px;
+}
 .bg_container{
-    height: 12rem;
+    padding-top: 5%;
+    padding-bottom: 35%;
     background-color: #FF7A00;
+}
+.box_information{
+    display: block;
+    border-radius: 10px;
+    width: 90%;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
