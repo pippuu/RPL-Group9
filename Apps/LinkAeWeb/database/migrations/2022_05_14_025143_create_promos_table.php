@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_admin');
             $table->string('namaPromo');
             $table->integer('discPromo');
-            $table->string('expireDate');
+            $table->date('expireDate');
             $table->timestamps();
             // $table->nullable()->unsignedBigInteger('id_user');
 

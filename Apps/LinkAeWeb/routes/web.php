@@ -5,7 +5,10 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\RiwayatPelayananController;
+use App\Http\Controllers\CustomerServiceController;
 use App\Http\Controllers\UserController;
+use App\Models\RiwayatPelayanan;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +25,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return redirect('/inputpromo');
 });
-
 
 $transaksiController = TransaksiController::getInstance();
 //Pada url /riwayat akan memanggil fungsi show pada class TransaksiController
@@ -43,7 +45,6 @@ Route::get('/inputpromo', [$inputpromo::class, 'index']);
 
 $createpromo = PromoController::getInstance();
 Route::post('/inputpromo/create', [$createpromo::class, 'create']);
-
 
 /**
  * Routing untuk masuk ke halaman login page
@@ -72,6 +73,6 @@ Route::get('/sketsa/isi-saldo', function () {
   return view('sketsa-isisaldo');
 });
 
-Route::get('/sketsa/pusat-bantuan', function () {
-  return view('sketsa-pusatbantuan');
-});
+Route::post('/sketsa/isi-saldo/konfirmasi', [UserController::class, 'isiSaldo']);
+
+Route::get('/sketsa/pusat-bantuan', [CustomerServiceController::class, 'show']);

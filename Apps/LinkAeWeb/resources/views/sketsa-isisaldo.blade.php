@@ -10,11 +10,11 @@
         <!-- Isi Saldo -->
         <div class="container">
             <h5 id="title">Isi Saldo</h5>
-            <form action="/createuseraccount/create" method="post">
+            <form action="/sketsa/isi-saldo/konfirmasi" method="post">
                 @csrf
                 <div class="form-group">
                     <label>Nominal Isi Saldo</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="norekening">
+                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="value">
                 </div>
                 <button type="submit" class="btn btn-warning">Konfirmasi Isi Saldo</button>
             </form>

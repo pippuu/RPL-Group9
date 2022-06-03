@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RiwayatPelayanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RiwayatPelayananController extends Controller
 {
@@ -14,7 +15,7 @@ class RiwayatPelayananController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -51,9 +52,9 @@ class RiwayatPelayananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
     }
 
     /**

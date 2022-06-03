@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CustomerService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerServiceController extends Controller
 {
@@ -50,9 +51,13 @@ class CustomerServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // pembuatan variabel yang menampung tabel 'transaksis' dari database
+        $customer_services = DB::table('customer_services')->get();
+
+        // me-return data tersebut ke url tertentu dengan variablenya bernama 'transaksis'
+        return view('sketsa-pusatbantuan')->with('customer_services', $customer_services);
     }
 
     /**

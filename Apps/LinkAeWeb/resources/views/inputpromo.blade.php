@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Expire_Date">Dapat digunakan sebelum: </label>
-                    <input type="text" class="form-control" name="expireDate">
+                    <input type="date" class="form-control" name="expireDate">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <!--

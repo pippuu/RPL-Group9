@@ -38,7 +38,7 @@ class TransaksiController extends Controller
         $transaksi = new Transaksi;
         $transaksi->id_user = '1';
         $transaksi->tipe = $request->tipe;
-        $transaksi->waktu = '2/6/22';
+        $transaksi->waktu = '2022/6/3';
         $transaksi->nominal = $request->nominal;
 
         // penyimpanan data tersebut ke database

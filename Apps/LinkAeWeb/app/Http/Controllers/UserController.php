@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -77,6 +78,19 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function isiSaldo(Request $request)
+    {
+        $userTarget = DB::table('users')->where('id_user', '1');
+
+
+        $userTarget->update(['saldo' => $userTarget->get()[0]->saldo + $request->value]);
+        dd($userTarget->get()[0]->saldo);
+        // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
+
+
+        return redirect()->back();
     }
 
     /**

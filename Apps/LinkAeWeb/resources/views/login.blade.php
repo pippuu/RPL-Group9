@@ -7,25 +7,21 @@
         <title>Login Page</title>
         <script src="https://cdn.tailwindcss.com"></script>
     <head>
-    <body>
-        <!-- <div class="flex items-center justify-center p-10 gap-y-10">
-            <div class="flex flex-row justify-center">
-                <img src="{{asset('images/Logo.png')}}">
-                <span class="my-auto"><p class="inline-block align-middle font-semibold text-white text-4xl">LinkAe</p></span>
-            </div>
-            <div class="container bg-white rounded" width="10px">
-                <p class="inline-block align-middle font-bold" style="color:#FF7A00">Login</p>
-                <div>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-                </div>
-            </div>
-        </div> -->
-        <div class="flex justify-center min-h-screen" style="background-color: #FF7A00">
+    <body class="min-h-screen min-w-screen flex flex-col" style="background-color: #FF7400">
+    <div class=" flex flex-col my-auto mx-auto text-center drop-shadow-md gap-y-5">
+        <div class="flex flex-row gap-x-3 place-items-center justify-center">
+            <img src="{{url('/images/logo.png')}}" alt="logo">
+            <p class="text-white text-5xl">LinkAe</p>
+        </div>
+        <form action="{{ url('/login') }}" method="post" class="grid gap-y-6 bg-white border-black p-8 w-[300px] rounded" id="login-box">
+            @csrf
+            <p class="font-semibold" style="color: #FF7400">Login</p>
+            <input type="text" class="px-1 rounded-sm" id="username" name="username" placeholder="username">
+            <input type="password" class="px-1 rounded-sm" id="password" name="password" placeholder="password">
+            <button type="submit" class="mx-auto text-sm font-semibold w-[100px] h-[40px]" style="color: #FF7400; border: solid 1px #FF7400; border-radius: 10px;" id="submit-button">Submit</button>
+        </form>
+    </div>
+        <!-- <div class="flex justify-center min-h-screen" style="background-color: #FF7A00">
             <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded">
                 <h3 class="text-2xl font-bold text-center">Login to your account</h3>
                 <form action="">
@@ -47,6 +43,6 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     <body>
 </html>

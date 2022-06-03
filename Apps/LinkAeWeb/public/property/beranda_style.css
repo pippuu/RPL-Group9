@@ -7,7 +7,7 @@
 }
 #search{
     display: block;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -30,20 +30,55 @@
     height: 100px;
     position: fixed;
     left: 20px;
-    top: 140px;
+    top: 13%;
 }
 .bg_container{
     padding-top: 5%;
-    padding-bottom: 35%;
+    padding-bottom: 20%;
     background-color: #FF7A00;
 }
 .box_information{
     display: block;
     border-radius: 10px;
     width: 90%;
-    height: 60px;
+    height: 70px;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.box_information label {
+    font-weight: normal;
+    font-size: 15px;
+    margin: 7% 0% 5% 5%;
+    color: #FF7A00;
+}
+.box_information b{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5% 0% 5% 2%;
+}
+.box_information button {
+    margin: 5% 0% 5% 15%;
+}
+/*Voucher*/
+.voucher_container{
+    margin: 5% 0% 5% 5%;
+}
+.voucher_background{
+    display: block;
+    border-radius: 10px ;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70px;
+    background-color: #FF7A00;
+}
+/*Menu*/
+.menu_container{
+    margin: 5% 0% 5% 5%;
+}
+
+
+
