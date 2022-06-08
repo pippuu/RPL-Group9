@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -17,10 +19,28 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function check($request)
+    public function check(Request $request)
     {
+        $creds = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        
+        // masih blm ada pengecekan hash karena blm ada konversi :
+        if(Auth::attempt($creds)){
+            // $request->session()->regenerate();
+            return redirect('/beranda');
+        } 
 
+        return redirect()->back()->with('message', "Username or password doesn't match");
+        
     } 
+
+    public function flush(Request $request)
+    {
+        $request->session()->flush();
+        dd($request->session());
+    }
     // /**
     //  * Show the form for creating a new resource.
     //  *

@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container">
-            <h5 id="title">Form Promo</h5>
+            <h5 id="title">Form Input Promo</h5>
             <form action="/inputpromo/create" method="post">
                 @csrf
                 <div class="form-group">

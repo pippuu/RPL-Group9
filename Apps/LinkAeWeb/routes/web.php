@@ -21,10 +21,11 @@ use App\Models\RiwayatPelayanan;
 |
 */
 
-
 Route::get('/', function () {
     return redirect('/inputpromo');
 });
+
+
 
 $transaksiController = TransaksiController::getInstance();
 //Pada url /riwayat akan memanggil fungsi show pada class TransaksiController
@@ -49,10 +50,24 @@ Route::post('/inputpromo/create', [$createpromo::class, 'create']);
 /**
  * Routing untuk masuk ke halaman login page
  */
-Route::get('/login', [LoginController::class, 'index']);
-//Beranda page after login
-Route::get('/beranda', [BerandaController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+/**
+ * Routing untuk mengecheck apakah username dan password sudah sesuai atau belum
+ */
+Route::post('/login/check', [LoginController::class, 'check']);
 
+Route::get('/login/flush', [LoginController::class, 'flush']);
+
+
+Route::middleware('auth')->group(function () {
+  /**
+ * Routing untuk masuk ke halaman beranda page
+ */
+  
+  
+}); 
+
+Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth');
 
 Route::post('/sketsa/buat-akun/create', [UserController::class, 'create']);
 
@@ -76,3 +91,15 @@ Route::get('/sketsa/isi-saldo', function () {
 Route::post('/sketsa/isi-saldo/konfirmasi', [UserController::class, 'isiSaldo']);
 
 Route::get('/sketsa/pusat-bantuan', [CustomerServiceController::class, 'show']);
+
+Route::get('/sketsa/ubahakun', function () {
+  return view('sketsa-ubahakun');
+});
+
+Route::post('/sketsa/ubahakun/gantinama', [UserController::class, 'gantiNama']);
+
+Route::post('/sketsa/ubahakun/gantipass', [UserController::class, 'gantiPassword']);
+
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('profile', 'UserController@gantiNama')->name('profile.edit');
+});

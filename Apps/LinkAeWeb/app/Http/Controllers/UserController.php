@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,7 +29,7 @@ class UserController extends Controller
         $user = new User;
         $user->nama = $request->nama;
         $user->username = $request->username;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->saldo = 0;
 
         // penyimpanan data tersebut ke database
@@ -77,7 +78,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->user()->update(
+            $request->all()
+        );
+    
+        return redirect()->route('profile.edit');
     }
 
     public function isiSaldo(Request $request)
@@ -89,6 +94,27 @@ class UserController extends Controller
         dd($userTarget->get()[0]->saldo);
         // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
 
+
+        return redirect()->back();
+    }
+
+    public function gantiNama(Request $request) {
+        //$userTarget = DB::table('users')->where('id_user', '1');
+
+        //$userTarget->update(['nama' => $request->nama]);
+        
+        //return redirect()->back();
+
+        return view('profile.edit', [
+            'user' => $request->user()
+        ]);
+        
+    }
+
+    public function gantiPassword(Request $request) {
+        $userTarget = DB::table('users')->where('id_user', '1');
+
+        $userTarget->update(['password' => Hash::make($request->password)]);
 
         return redirect()->back();
     }

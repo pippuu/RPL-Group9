@@ -31,5 +31,7 @@
                 @endforeach
             </tbody>
         </table>
+        <!--tampilan navbar-->
+        @include('partials.navbar')
     </body>
 </html>

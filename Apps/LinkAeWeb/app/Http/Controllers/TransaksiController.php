@@ -34,15 +34,35 @@ class TransaksiController extends Controller
      */
     public function create(Request $request)
     {
-        // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
-        $transaksi = new Transaksi;
-        $transaksi->id_user = '1';
-        $transaksi->tipe = $request->tipe;
-        $transaksi->waktu = '2022/6/3';
-        $transaksi->nominal = $request->nominal;
+        // cek apakah saldo cukup
+        $currentSaldo = DB::table('users')->where('id_user', 1)->get()[0]->saldo;
+        // dd($currentSaldo);
+        if ($currentSaldo >= $request->nominal) {
+            // dd('Pembayaran berhasil.');
+            // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
+            $transaksi = new Transaksi;
+            $transaksi->id_user = '1';
+            $transaksi->tipe = $request->tipe;
+            $transaksi->waktu = '2022/6/3';
+            $transaksi->nominal = $request->nominal;
+            if ($request->tipe == 'Transfer') {
+                $transaksi->keterangan = 'Transfer ke bank ' . $request->banktujuan . ' ke nomor ' . $request->norekening;
+            } else {
+                $transaksi->keterangan = $request->keterangan;
+            }
 
-        // penyimpanan data tersebut ke database
-        $transaksi->save();
+            // penyimpanan data tersebut ke database
+            $transaksi->save();
+
+            // mengurangi saldo user
+            $userTarget = DB::table('users')->where('id_user', '1');
+            $userTarget->update(['saldo' => $userTarget->get()[0]->saldo - $request->nominal]);
+
+        } else {
+            // return redirect()->back()->with(trigger_error('Saldo tidak mencukupi, transaksi anda tidak dilanjutkan', E_USER_WARNING)); 
+        }
+
+        return redirect()->back();
     }
 
     /**

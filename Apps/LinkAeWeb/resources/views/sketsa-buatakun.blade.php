@@ -28,5 +28,7 @@
             </form>
         </div>
         <!-- Form Buat Akun Baru -->
+        <!--tampilan navbar-->
+        @include('partials.navbar')
     </body>
 </html>

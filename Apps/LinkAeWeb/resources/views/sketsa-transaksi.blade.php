@@ -22,13 +22,16 @@
                             <option>Situs Hiburan</option>
                             <option>Pajak</option>
                             <option>Kartu Uang Elektronik</option>
-                            <option>Transfer</option>
                             <option>Pulsa</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Nominal</label>
                         <input type="tel" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal">
+                    </div>
+                    <div class="form-group">
+                        <label>Keterangan tambahan</label>
+                        <input type="text" class="form-control" name="keterangan">
                     </div>
                     <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
                     <button type="button" class="btn btn-danger">Batalkan Pembayaran</button>
@@ -59,5 +62,7 @@
                 </form>
             </div>
         <!-- Transaksi -->
+        <!--tampilan navbar-->
+        @include('partials.navbar')
     </body>
 </html>
