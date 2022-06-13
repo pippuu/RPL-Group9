@@ -13,14 +13,14 @@
         <div class="bg_container">
             <div class="identity">
                 <img src="images/Avatar.png">
-                <label>Halo,<label>Nama User</label></label>
+                <label>Halo,<label>Nama User <!--Auth::user()->nama--></label></label>
             </div>
             <input type="text" class="form-control" id="search" placeholder="Cari">
         </div>
 
         <div class="box_information">
                 <label>Saldo LinkAe<br>
-                    <b>Rp.<b id="label_Value">20.000</b></b>
+                    <b>Rp.<b id="label_Value">20.000 <!--Auth::user()->saldo--></b></b>
                 </label>
                 <a href="/sketsa/isi-saldo"><button id="A" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">TopUp Saldo</button></a>
                 <a href="/sketsa/transfer"><button id="B" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">Transfer</button></a>
@@ -35,14 +35,28 @@
                 <label>
                     Cek daftar promo kamu sekarang juga<br>
                     <i>Claim sebelum promo berakhir</i>
-                </label></a>
-            </div>
+                </label>
+            </div></a>
         </div>
 
         <div class="menu_container">
             <b style="font-size: 20px;">Pembayaran</b><br>
             <label style="color:#FF7A00;">Pilih jenis pembayaran yang anda lakukan</label>
-            
+            <a href="/sketsa/transaksi"><div class="menu_background">  
+            <img src="images/KartuUangE.png">
+                <label>Bayar apa saja disini
+                    <ul>
+                        <li>Transportasi</li>
+                        <li>Situs Hiubran</li>
+                        <li>Pajak</li>
+                        <li>Kartu Uang Elektronik</li>
+                        <li>Pulsa</li>
+                    </ul>
+                </label>
+            </div></a>
+        </div>
+
+            <!-- !!! Menu disabled
             <div class="row_1">
                 <label id="menu1"><a href="#"><img src="images/Kereta.png"><br></a>Transportasi</label>
                 <label id="menu2"><a href="#"><img src="images/SitusHiburan.png"><br></a>Situs Hiburan</label>
@@ -54,7 +68,8 @@
                 <label id="menu5"><a href="#"><img src="images/TransferUang.png"><br></a>Transfer Uang</label>
                 <label id="menu6"><a href="#"><img src="images/Phone.png"><br></a>Pulsa</label>
             </div>
-        </div>
+            -->
+        
     <!--tampilan navbar-->
    @include('partials.navbar')
     </div>

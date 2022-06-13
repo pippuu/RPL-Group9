@@ -12,10 +12,9 @@ class BerandaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return view('beranda');
     }
-
     /**
      * Show the form for creating a new resource.
      *

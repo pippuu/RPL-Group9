@@ -36,7 +36,7 @@
             <img src="{{url('/images/logo.png')}}" alt="logo">
             <p class="text-white text-5xl">LinkAe</p>
         </div>
-        <form action="{{ url('/login/check') }}" method="post" class="grid gap-y-6 bg-white border-black p-8 w-[300px] rounded" id="login-box">
+        <form action="{{ url('/login') }}" method="post" class="grid gap-y-6 bg-white border-black p-8 w-[300px] rounded" id="login-box">
             @csrf
             <p class="font-semibold" style="color: #FF7400">Login</p>
             <input type="text" class="px-1 rounded-sm" id="username" name="username" placeholder="username">

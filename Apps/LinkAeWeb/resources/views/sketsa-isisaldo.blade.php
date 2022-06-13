@@ -9,14 +9,14 @@
     </head>
     <body>
         <!-- Isi Saldo -->
-        <div class="container">
+        <div class="container" style="margin-top:10%;">
             <h5 id="title">Isi Saldo</h5>
             <form action="/sketsa/isi-saldo/konfirmasi" method="post">
                 @csrf
                 <div class="form-group">
                     <label>Nominal Isi Saldo</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="value">
-                </div>
+                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="value" placeholder="Rp">
+                </div><br>
                 <button type="submit" class="btn btn-warning">Konfirmasi Isi Saldo</button>
             </form>
         </div>

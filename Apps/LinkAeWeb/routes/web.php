@@ -9,6 +9,7 @@ use App\Http\Controllers\RiwayatPelayananController;
 use App\Http\Controllers\CustomerServiceController;
 use App\Http\Controllers\UserController;
 use App\Models\RiwayatPelayanan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 /**
  * Routing untuk mengecheck apakah username dan password sudah sesuai atau belum
  */
-Route::post('/login/check', [LoginController::class, 'check']);
+Route::post('/login', [LoginController::class, 'auth']);
 
 Route::get('/login/flush', [LoginController::class, 'flush']);
 
@@ -62,12 +63,17 @@ Route::get('/login/flush', [LoginController::class, 'flush']);
 Route::middleware('auth')->group(function () {
   /**
  * Routing untuk masuk ke halaman beranda page
+ * 
  */
-  
-  
+  // Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
 }); 
 
-Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth');
+Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
+
+/*Bentar bang*/
+Route::get('/test-beranda', [BerandaController::class, 'index']);
+
+// Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 Route::post('/sketsa/buat-akun/create', [UserController::class, 'create']);
 
@@ -99,6 +105,8 @@ Route::get('/sketsa/ubahakun', function () {
 Route::post('/sketsa/ubahakun/gantinama', [UserController::class, 'gantiNama']);
 
 Route::post('/sketsa/ubahakun/gantipass', [UserController::class, 'gantiPassword']);
+
+Route::post('/sketsa/ubahakun/gantiinfoakun', [UserController::class, 'gantiInfoAkun']);
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('profile', 'UserController@gantiNama')->name('profile.edit');

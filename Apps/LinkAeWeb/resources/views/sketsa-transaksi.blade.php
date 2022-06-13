@@ -4,11 +4,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="property/inputpromo_style.css" />
+        <link rel="stylesheet" type="text/css" href="property/transaksi_style.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script type="text/javascript" src="property/inputpromo_script.js"></script>
+        <script type="text/javascript" src="property/universal_script.js"></script>
         <title>Transaksi</title>
     </head>
+    <style>
+        .container{margin-top: 10%;}
+        button{margin-top: 5px;}
+        .form-group select{width: 250px;}
+    </style>
+    <script>
+        function reBeranda() {
+            location.replace("/beranda")
+        }
+    </script>
     <body>
         <!-- Transaksi -->
         <div class="container">
@@ -27,38 +37,14 @@
                     </div>
                     <div class="form-group">
                         <label>Nominal</label>
-                        <input type="tel" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal">
+                        <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp">
                     </div>
                     <div class="form-group">
                         <label>Keterangan tambahan</label>
                         <input type="text" class="form-control" name="keterangan">
-                    </div>
+                    </div><br>
                     <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
-                    <button type="button" class="btn btn-danger">Batalkan Pembayaran</button>
-                    <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#bayar">
-                        Bayar
-                    </button>
-                    <div class="modal fade" id="bayar" tabindex="-1" aria-labelledby="bayarLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="d-flex">
-                                        <div style="margin-right:10px">
-                                            Anda yakin dengan pembayaran ini?
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer" style="margin-top: 5%">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                        <button type="submit" class="btn btn-danger" value="Submit">Yes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                    <button onclick="reBeranda()" type="button" class="btn btn-danger">Batalkan Pembayaran</button>
                 </form>
             </div>
         <!-- Transaksi -->

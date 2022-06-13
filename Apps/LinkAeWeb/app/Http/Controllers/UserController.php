@@ -91,7 +91,7 @@ class UserController extends Controller
 
 
         $userTarget->update(['saldo' => $userTarget->get()[0]->saldo + $request->value]);
-        dd($userTarget->get()[0]->saldo);
+        // dd($userTarget->get()[0]->saldo);
         // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
 
 
@@ -114,6 +114,16 @@ class UserController extends Controller
     public function gantiPassword(Request $request) {
         $userTarget = DB::table('users')->where('id_user', '1');
 
+        $userTarget->update(['password' => Hash::make($request->password)]);
+
+        return redirect()->back();
+    }
+
+    public function gantiInfoAkun(Request $request) {
+        $userTarget = DB::table('users')->where('id_user', '1');
+
+        $userTarget->update(['username' => $request->username]);
+        $userTarget->update(['nama' => $request->nama]);
         $userTarget->update(['password' => Hash::make($request->password)]);
 
         return redirect()->back();

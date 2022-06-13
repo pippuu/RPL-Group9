@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -16,30 +17,29 @@ class LoginController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) return redirect('/beranda');
         return view('login');
     }
 
-    public function check(Request $request)
+    public function auth(Request $request)
     {
-        $creds = $request->validate([
-            'username' => 'required',
-            'password' => 'required',
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
         ]);
         
-        // masih blm ada pengecekan hash karena blm ada konversi :
-        if(Auth::attempt($creds)){
-            // $request->session()->regenerate();
-            return redirect('/beranda');
+        if(Auth::attempt($credentials)){
+            return redirect()->intended('beranda');
         } 
 
         return redirect()->back()->with('message', "Username or password doesn't match");
         
-    } 
+    }
 
     public function flush(Request $request)
     {
         $request->session()->flush();
-        dd($request->session());
+        return redirect()->route('login');
     }
     // /**
     //  * Show the form for creating a new resource.
