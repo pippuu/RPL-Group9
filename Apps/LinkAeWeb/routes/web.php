@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return redirect('/inputpromo');
+    return redirect('/login');
 });
 
 
@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
   // Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
 }); 
 
-Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 /*Bentar bang*/
 Route::get('/test-beranda', [BerandaController::class, 'index']);
@@ -101,10 +101,6 @@ Route::get('/sketsa/pusat-bantuan', [CustomerServiceController::class, 'show']);
 Route::get('/sketsa/ubahakun', function () {
   return view('sketsa-ubahakun');
 });
-
-Route::post('/sketsa/ubahakun/gantinama', [UserController::class, 'gantiNama']);
-
-Route::post('/sketsa/ubahakun/gantipass', [UserController::class, 'gantiPassword']);
 
 Route::post('/sketsa/ubahakun/gantiinfoakun', [UserController::class, 'gantiInfoAkun']);
 

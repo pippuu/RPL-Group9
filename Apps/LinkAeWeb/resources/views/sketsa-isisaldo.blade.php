@@ -15,9 +15,9 @@
                 @csrf
                 <div class="form-group">
                     <label>Nominal Isi Saldo</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="value" placeholder="Rp">
+                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="value" placeholder="Rp" id="inputSaldo">
                 </div><br>
-                <button type="submit" class="btn btn-warning">Konfirmasi Isi Saldo</button>
+                <button type="submit" class="btn btn-warning" id="submitSaldo">Konfirmasi Isi Saldo</button>
             </form>
         </div>
         <!-- Isi Saldo -->

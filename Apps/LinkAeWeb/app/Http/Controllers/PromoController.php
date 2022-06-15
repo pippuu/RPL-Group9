@@ -41,7 +41,7 @@ class PromoController extends Controller
     {
         $promo = new Promo;
 
-        $promo->id_admin = 123;
+        $promo->id_admin = 1;
         $promo->namaPromo = $request->namaPromo;
         $promo->discPromo = $request->discPromo;
         $promo->expireDate = $request->expireDate;

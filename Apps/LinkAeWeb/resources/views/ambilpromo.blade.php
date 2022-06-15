@@ -13,7 +13,7 @@
     <body>
     <!--Mother tag class container untuk membatasi child tag</> yang ada didalamnya-->
     <div class="container-content">
-        <!--Tittle-->
+        <!--Title-->
         <h5 id="title">List Promo</h5>
         <!--Membuat tag table-->
         <table class="table table-hover table-bordered" style="text-align: center">

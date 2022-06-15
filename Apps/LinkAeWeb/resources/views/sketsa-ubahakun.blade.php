@@ -20,9 +20,9 @@
                             <div class="card-body">
                                 <div class="row mb-4">
                                     <label>Username : <!--Auth::user()->nama--></label><br>
-                                    <label>Nama &nbsp;&nbsp;&nbsp; : </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiNama">Ganti Nama</button--> <br>
-                                    <label>Password : </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiPass">Ganti Password</button--> <br><br>
-                                    <button type="button" class="btn btn-warning center-block" data-bs-toggle="modal" data-bs-target="#modalGantiInfoAkun">Ubah</button>                         
+                                    <label>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiNama">Ganti Nama</button--> <br>
+                                    <label>Password &nbsp;: </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiPass">Ganti Password</button--> <br><br>
+                                    <button type="button" class="btn btn-warning center-block" data-bs-toggle="modal" data-bs-target="#modalGantiInfoAkun">Ubah Info Akun</button>                         
                                 </div>
                             </div>
                         </div>  
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer" style="margin-top: 5%">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                                 <button type="submit" class="btn btn-success" value="Submit">Ubah</button>
                             </div>
                         </form>
@@ -64,107 +64,6 @@
                 </div>
             </div>
         </div>                               
-                                                             
-                            <!--div class="card-body">
-                                @csrf
-                                <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Username</label>
-                                    <div class="col-md-6">
-                                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" username="username" autocomplete="username" autofocus>
-                                        @error('username')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Nama</label>
-                                    <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" autocomplete="name" autofocus>
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Password</label>
-                                    <div class="col-md-6">
-                                        <input id="password" type="text" class="form-control @error('password') is-invalid @enderror" password="password" autocomplete="password" autofocus>
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>                                                                        
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Update Profile
-                                        </button>
-                                    </div>
-                                </div>
-                            </div-->
-                       
-        <!-- Modal Ganti Nama -->
-        <!--<div class="modal fade" id="modalGantiNama" tabindex="-1" aria-labelledby="modalGantiNama" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalGantiNama">Ganti Nama</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/sketsa/ubahakun/gantinama" method="post">
-                            @csrf
-                            <div class="d-flex">
-                                <div style="margin-right:10px">
-                                    <label for="nama">Nama Baru:</label><br><br>
-                                </div>
-                                <div>
-                                    <input type="text" id="nama" name="nama" placeholder="Budi"><br><br>
-                                </div>
-                            </div>
-                            <div class="modal-footer" style="margin-top: 5%">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" value="Submit">Ganti Nama</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        <!-- Modal Ganti Password -->
-        <!--div class="modal fade" id="modalGantiPass" tabindex="-1" aria-labelledby="modalGantiPass" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalGantiPass">Ganti Password</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/sketsa/ubahakun/gantipass" method="post">
-                            @csrf
-                            <div class="d-flex">
-                                <div style="margin-right:10px">
-                                    <label for="password">Password Baru:</label><br><br>
-                                </div>
-                                <div>
-                                    <input type="password" id="password" name="password" placeholder="********"><br><br>
-                                </div>
-                            </div>
-                            <div class="modal-footer" style="margin-top: 5%">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" value="Submit">Ganti Password</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div -->
         <!--tampilan navbar-->
         @include('partials.navbar')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

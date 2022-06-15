@@ -1,5 +1,6 @@
 .mobile_layout{
     font-family: sans-serif;
+    
 }
 .form-group{
     top:5%;
@@ -10,16 +11,18 @@
 }
 #search{
     display: block;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    position: absolute;
+    margin-left: 20px;
+    margin-right: 20px;
+    top:20px;
+    width: 88%;
     height:40px;      
     border-radius: 10px;
 }
 .bg_container{
-    padding-top: 5%;
-    padding-bottom: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
     background-color: #FF7A00;
 }
 .identity{
@@ -35,6 +38,7 @@
     margin-top: -10px;
 }
 .identity label{
+   
     margin-left:10px;
     top: 30px;
     color: white;
@@ -46,8 +50,8 @@
     display: block;
     border-radius: 10px;
     width: 90%;
-    height: 70px;
-    margin-top: 5%;
+    height: 90px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
@@ -57,8 +61,8 @@
     font-weight: normal;
     font-size: 15px;
     /*margin: 3% 0% 5% 5%;*/
-    margin-left: 5%;
-    margin-top: 8px;
+    margin-left: 30px;
+    margin-top: 5px;
     color: #FF7A00;
 }
 .box_information b{
@@ -66,13 +70,12 @@
     font-size: 20px;
     margin: 5% 0% 5% 0%;
 }
-.box_information button  {
- 
-    margin: 0% 0% 8% 2%;
+.box_information button {
+    margin: 5px 0% 8% 30px;
 }
 /*Voucher*/
 .voucher_container{
-    margin: 5% 5% 5% 5%;
+    margin: 10px 5% 0 5%;
 }
 .voucher_container span{
     color: orange;
@@ -116,7 +119,7 @@
 
 /*Menu*/
 .menu_container{
-    margin: 5% 5% 5% 5%;
+    margin: 10px 5% 0 5%;
 }
 .menu_container img{
     height: 50px;
@@ -124,9 +127,9 @@
     border-radius: 10px;
 }
 .menu_background{
-    margin-top: 10px;
     display: block;
     border-radius: 10px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     height: 150px;
@@ -148,31 +151,4 @@
     margin-top: 5px;
     margin-left: 30px;   /*background-image: linear-gradient(to right, rgb(255, 186, 24) , rgb(237, 141, 17));*/
 }
-/*
-.row_1{
-    margin-top: 20px;
-    display: block;
-    margin-left: 20px;
-    margin-right: auto;
-    height: 100px;
-}
-.row_1 #menu1, #menu2, #menu3{
-    color: #292929;
-    font-weight: normal;
-    text-align: center;
-    margin-left: 20px;
-}
-.row_2{
-    margin-top: 10px;
-    display: block;
-    margin-left: 26px;
-    height: 100px;
-}
-.row_2 #menu4, #menu5, #menu6{
-    color: #292929;
-    font-weight: normal;
-    text-align: center;
-    margin-left: 22px;
-}*/
-
 

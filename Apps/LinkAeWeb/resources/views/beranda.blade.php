@@ -11,17 +11,17 @@
 <body onload=display_ct();>
     <div class="mobile_layout">
         <div class="bg_container">
+            <input type="text" class="form-control" id="search" placeholder="Cari">
             <div class="identity">
                 <img src="images/Avatar.png">
                 <label>Halo,<label>Nama User <!--Auth::user()->nama--></label></label>
             </div>
-            <input type="text" class="form-control" id="search" placeholder="Cari">
         </div>
 
         <div class="box_information">
-                <label>Saldo LinkAe<br>
-                    <b>Rp.<b id="label_Value">20.000 <!--Auth::user()->saldo--></b></b>
-                </label>
+                <label>Saldo LinkAe
+                    <b>Rp <b id="label_Value">20.000 <!--Auth::user()->saldo--></b></b>
+                </label><br>
                 <a href="/sketsa/isi-saldo"><button id="A" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">TopUp Saldo</button></a>
                 <a href="/sketsa/transfer"><button id="B" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">Transfer</button></a>
         </div>
@@ -55,23 +55,9 @@
                 </label>
             </div></a>
         </div>
-
-            <!-- !!! Menu disabled
-            <div class="row_1">
-                <label id="menu1"><a href="#"><img src="images/Kereta.png"><br></a>Transportasi</label>
-                <label id="menu2"><a href="#"><img src="images/SitusHiburan.png"><br></a>Situs Hiburan</label>
-                <label id="menu3"><a href="#"><img src="images/Pajak.png"><br></a>Pajak</label>
-            </div>
-               
-            <div class="row_2">
-                <label id="menu4"><a href="#"><img src="images/KartuUangE.png"><br></a>E-Money</label>
-                <label id="menu5"><a href="#"><img src="images/TransferUang.png"><br></a>Transfer Uang</label>
-                <label id="menu6"><a href="#"><img src="images/Phone.png"><br></a>Pulsa</label>
-            </div>
-            -->
-        
+     
     <!--tampilan navbar-->
    @include('partials.navbar')
-    </div>
+   </div> 
 </body>
 </html>
