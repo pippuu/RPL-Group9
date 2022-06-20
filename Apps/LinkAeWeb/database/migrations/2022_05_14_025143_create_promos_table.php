@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('promos', function (Blueprint $table) {
             $table->id('id_promo');
-            $table->unsignedBigInteger('id_admin');
+            $table->foreignId('id_admin');
             $table->string('namaPromo');
             $table->integer('discPromo');
             $table->date('expireDate');

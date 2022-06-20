@@ -78,6 +78,15 @@ class PromoController extends Controller
     
     }
 
+    public function show_admin()
+    {
+        //
+        $promos = DB::table('promos')->get();
+
+        return view('table-promo')->with('promos', $promos);
+    
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

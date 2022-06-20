@@ -60,6 +60,15 @@ class CustomerServiceController extends Controller
         return view('sketsa-pusatbantuan')->with('customer_services', $customer_services);
     }
 
+    public function show_admin()
+    {
+        // pembuatan variabel yang menampung tabel 'transaksis' dari database
+        $css = DB::table('customer_services')->get();
+
+        // me-return data tersebut ke url tertentu dengan variablenya bernama 'transaksis'
+        return view('table-customerservice')->with('css', $css);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

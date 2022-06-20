@@ -65,10 +65,8 @@ Route::middleware('auth')->group(function () {
  * Routing untuk masuk ke halaman beranda page
  * 
  */
-  // Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
+  Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
 }); 
-
-Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 /*Bentar bang*/
 Route::get('/test-beranda', [BerandaController::class, 'index']);
@@ -107,3 +105,11 @@ Route::post('/sketsa/ubahakun/gantiinfoakun', [UserController::class, 'gantiInfo
 Route::group(['middleware' => 'auth'], function () {
   Route::get('profile', 'UserController@gantiNama')->name('profile.edit');
 });
+
+Route::get('/admin', function () {
+  return view('adminberanda');
+});
+Route::get('/admin/usertable', [UserController::class, 'show']);
+Route::get('/admin/cstable', [CustomerServiceController::class, 'show_admin']);
+Route::get('/admin/promotable', [PromoController::class, 'show_admin']);
+Route::get('/admin/transaksitable', [TransaksiController::class, 'show_admin']);

@@ -91,6 +91,15 @@ class TransaksiController extends Controller
         return view('riwayatpembayaran')->with('transaksis', $transaksis);
     }
 
+    public function show_admin()
+    {
+        // pembuatan variabel yang menampung tabel 'transaksis' dari database
+        $transaksis = DB::table('transaksis')->get();
+
+        // me-return data tersebut ke url tertentu dengan variablenya bernama 'transaksis'
+        return view('table-transaksi')->with('transaksis', $transaksis);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
