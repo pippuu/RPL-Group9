@@ -59,9 +59,10 @@ class TransaksiController extends Controller
             // mengurangi saldo user
             $userTarget = DB::table('users')->where('id', Auth::user()->id);
             $userTarget->update(['saldo' => $userTarget->get()[0]->saldo - $request->nominal]);
-
+            
+             return redirect()->back()->with('success', "Transaksi Berhasil");
         } else {
-            // return redirect()->back()->with(trigger_error('Saldo tidak mencukupi, transaksi anda tidak dilanjutkan', E_USER_WARNING)); 
+             return redirect()->back()->with('message', "Saldo tidak mencukupi, transaksi anda tidak dilanjutkan");  
         }
 
         return redirect()->back();
