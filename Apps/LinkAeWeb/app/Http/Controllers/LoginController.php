@@ -27,21 +27,51 @@ class LoginController extends Controller
             'username' => ['required'],
             'password' => ['required'],
         ]);
-        
-        if(Auth::attempt($credentials)){
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            dd($request->session());
             return redirect()->intended('beranda');
-        } 
+        }
 
         return redirect()->back()->with('message', "Username or password doesn't match");
-        
     }
 
     public function flush(Request $request)
     {
         $request->session()->flush();
         return redirect()->route('login');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+
+    public function create(Request $request)
+    {
+        $credentials = $request->validate([
+            'nama' => ['required'],
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        $existsusers = DB::table('users')->get();
+        foreach($existsusers as $user){
+            if($request->username == $user->username){
+                return redirect()->back()->with('message', "Username is already existed, please use another username");
+            }
+        }
+
+        $user = new User;
+        $user->nama = $request->nama;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
+        $user->saldo = 0;
+
+        // // penyimpanan data tersebut ke database
+        $user->save();
+        return redirect()->route('login')->with('success', "Success creating a new account. Please login to continue.");
     }
     // /**
     //  * Show the form for creating a new resource.

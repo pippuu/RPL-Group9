@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="property/transaksi_style.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script type="text/javascript" src="property/universal_script.js"></script>
         <title>Transaksi</title>
     </head>
@@ -22,6 +22,9 @@
     <body>
         <!-- Transaksi -->
         <div class="container">
+                <label>Saldo LinkAe :
+                    <b>Rp <b id="label_Value">{{$user->saldo}} <!--Auth::user()->saldo--></b></b>
+                </label><br><br>
                 <h5 id="title">Transaksi</h5>
                 <form action="/sketsa/transaksi/konfirmasi" method="post">
                     @csrf
@@ -37,11 +40,11 @@
                     </div>
                     <div class="form-group">
                         <label>Nominal</label>
-                        <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp">
+                        <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp" required>
                     </div>
                     <div class="form-group">
                         <label>Keterangan tambahan</label>
-                        <input type="text" class="form-control" name="keterangan">
+                        <input type="text" class="form-control" name="keterangan" required>
                     </div><br>
                     <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
                     <button onclick="reBeranda()" type="button" class="btn btn-danger">Batalkan Pembayaran</button>

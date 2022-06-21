@@ -16,7 +16,7 @@ return new class extends Migration
     {
         // Memploting nama beserta tipe data ke kolom-kolom users ke database
         Schema::create('users', function (Blueprint $table) {
-            $table->id('id_user');
+            $table->id('id');
             $table->string('nama');
             $table->string('username');
             $table->string('password');
@@ -26,10 +26,18 @@ return new class extends Migration
                 
         DB::table('users')->insert(
             array(
-                'nama' => 'rafif',
-                'username' => 'rafif123',
-                'password' => Hash::make('fausta'),
-                'saldo' => 1000000,
+                [
+                    'nama' => 'rafif',
+                    'username' => 'rafif123',
+                    'password' => Hash::make('fausta'),
+                    'saldo' => 1000000,
+                ],
+                [
+                    'nama' => 'nozomi',
+                    'username' => 'belovednozomi',
+                    'password' => Hash::make('rafifwaifu'),
+                    'saldo' => 1000000,
+                ]
             )
         );
     }

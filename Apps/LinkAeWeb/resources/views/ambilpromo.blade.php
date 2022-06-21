@@ -50,6 +50,8 @@
                 @endforeach
             </tbody>
         </table>
+    <!--tampilan navbar-->
+   @include('partials.navbar')
     </div>
     </body>
 </html>

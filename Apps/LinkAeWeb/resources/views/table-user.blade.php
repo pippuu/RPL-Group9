@@ -25,7 +25,7 @@
                     </tr>
                     @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->id_user }}</td>
+                        <td>{{ $user->id }}</td>
                         <td>{{ $user->nama }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->saldo }}</td>

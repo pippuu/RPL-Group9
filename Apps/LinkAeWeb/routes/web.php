@@ -26,7 +26,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-
+// ----------------------------- ADMIN -----------------------------
 
 $transaksiController = TransaksiController::getInstance();
 //Pada url /riwayat akan memanggil fungsi show pada class TransaksiController
@@ -48,6 +48,8 @@ Route::get('/inputpromo', [$inputpromo::class, 'index']);
 $createpromo = PromoController::getInstance();
 Route::post('/inputpromo/create', [$createpromo::class, 'create']);
 
+// ----------------------------- USER -----------------------------
+
 /**
  * Routing untuk masuk ke halaman login page
  */
@@ -57,7 +59,13 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
  */
 Route::post('/login', [LoginController::class, 'auth']);
 
-Route::get('/login/flush', [LoginController::class, 'flush']);
+Route::get('/register', function () {
+  return view('register');
+})->name('register');
+Route::post('/register', [LoginController::class, 'create']);
+
+
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
 Route::middleware('auth')->group(function () {
@@ -66,41 +74,39 @@ Route::middleware('auth')->group(function () {
  * 
  */
   Route::get('/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('beranda');
+
+  /** 
+   * Routing untuk transaksi oleh user
+   */
+  Route::get('/sketsa/transaksi', function () {
+    return view('sketsa-transaksi')->with('user', Auth::user());
+  });
+  Route::post('/sketsa/transaksi/konfirmasi', [TransaksiController::class, 'create']);
+
+  /** Routing untuk pengisian saldo oleh user */
+  Route::get('/sketsa/isi-saldo', function () {
+    return view('sketsa-isisaldo')->with('user', Auth::user());
+  });
+  Route::post('/sketsa/isi-saldo/konfirmasi', [UserController::class, 'isiSaldo']);
+
+  Route::get('/sketsa/transfer', function () {
+    return view('sketsa-transfer')->with('user', Auth::user());
+  });
+
+  Route::get('/sketsa/ubahakun', function () {
+    return view('sketsa-ubahakun')->with('user', Auth::user());
+  });
+  
+  Route::post('/sketsa/ubahakun/gantiinfoakun', [UserController::class, 'gantiInfoAkun']);
 }); 
-
-/*Bentar bang*/
-Route::get('/test-beranda', [BerandaController::class, 'index']);
-
-// Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 Route::post('/sketsa/buat-akun/create', [UserController::class, 'create']);
 
-Route::get('/sketsa/buat-akun', function () {
-  return view('sketsa-buatakun');
-});
 
-Route::get('/sketsa/transaksi', function () {
-  return view('sketsa-transaksi');
-});
-Route::post('/sketsa/transaksi/konfirmasi', [TransaksiController::class, 'create']);
-
-Route::get('/sketsa/transfer', function () {
-  return view('sketsa-transfer');
-});
-
-Route::get('/sketsa/isi-saldo', function () {
-  return view('sketsa-isisaldo');
-});
-
-Route::post('/sketsa/isi-saldo/konfirmasi', [UserController::class, 'isiSaldo']);
 
 Route::get('/sketsa/pusat-bantuan', [CustomerServiceController::class, 'show']);
 
-Route::get('/sketsa/ubahakun', function () {
-  return view('sketsa-ubahakun');
-});
 
-Route::post('/sketsa/ubahakun/gantiinfoakun', [UserController::class, 'gantiInfoAkun']);
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('profile', 'UserController@gantiNama')->name('profile.edit');

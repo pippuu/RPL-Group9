@@ -22,6 +22,9 @@
     <body>
         <!-- Transfer Bank -->
         <div class="container">
+                <label>Saldo LinkAe :
+                    <b>Rp <b id="label_Value">{{$user->saldo}} <!--Auth::user()->saldo--></b></b>
+                </label><br><br>
             <h2 id="title">Transfer Bank</h2>
             <form action="/sketsa/transaksi/konfirmasi" method="post">
                 @csrf
@@ -44,14 +47,14 @@
                 </div><br>
                 <div class="form-group">
                     <label>No. Rekening</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="norekening">
+                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="norekening" required>
                 </div><br>
                 <div class="form-group">
                     <label>Nominal</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp.">
+                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp." required>
                 </div><br>
-                <button type="submit" class="btn btn-warning">Konfirmasi Pembayaran</button>
-                <button onclick="reBeranda()" type="button" class="btn btn-danger">Batalkan Pembayaran</button>
+                <button type="submit" class="btn btn-success">Konfirmasi</button>
+                <button onclick="reBeranda()" type="button" class="btn btn-danger">Batalkan</button>
             </form>
         </div>
         <!-- Transfer Bank -->

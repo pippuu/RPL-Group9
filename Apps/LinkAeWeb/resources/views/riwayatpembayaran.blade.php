@@ -19,7 +19,6 @@
             <thead>
             <tr>
                 <!--menampilkan kolom dari tabel riwayat pembayaran-->
-                <th scope="col" class="col col-lg-0">id_user</th> <!--kolom id_user-->
                 <th scope="col" class="col col-lg-0">Tipe Pembayaran</th> <!--kolom tipe pembayaran yang dipilih-->
                 <th scope="col" class="col col-lg-0">Tanggal Pembayaran</th> <!--kolom tanggal pembayaran-->
                 <th scope="col" class="col col-lg-0">Nominal</th> <!--kolom nominal yang dibayarkan-->
@@ -29,7 +28,6 @@
                 @foreach($transaksis as $transaksi)
                 <tr>
                     <!--membaca data transaksi dari data transaksis di database-->
-                    <td scope="row mb-9">{{$transaksi->id_user}}</td> <!--data pada kolom id_user-->
                     <td>{{$transaksi->tipe}}</td> <!--data pada kolom tipe-->
                     <td>{{$transaksi->waktu}}</td> <!--data pada kolom waktu-->
                     <td><label>Rp.</label>{{$transaksi->nominal}}</td> <!--data pada kolom nominal-->

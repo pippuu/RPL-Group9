@@ -16,15 +16,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="Nama_Promo">Nama Promo</label>
-                    <input type="text" class="form-control" name="namaPromo">
+                    <input type="text" class="form-control" name="namaPromo" required>
                 </div>
                 <div class="form-group">
                     <label for="Diskon">Diskon (%)</label>
-                    <input type="tel" onkeypress="return onlyNumberKey(event)" class="form-control" name="discPromo">
+                    <input type="tel" onkeypress="return onlyNumberKey(event)" class="form-control" name="discPromo" required>
                 </div>
                 <div class="form-group">
                     <label for="Expire_Date">Dapat digunakan sebelum: </label>
-                    <input type="date" class="form-control" name="expireDate">
+                    <input type="date" class="form-control" name="expireDate" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <!--
@@ -39,6 +39,9 @@
                     <input type="text" id="expireDate"><br>
                 </div>-->
             </form>
+            <a class="nav-link" href={{ url('/admin') }}>
+            <span>Kembali ke Beranda</span>
+            </a>
         </div> <!--container-->
     </body>
 </html>

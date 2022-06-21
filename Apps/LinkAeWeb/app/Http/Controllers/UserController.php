@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -89,7 +91,7 @@ class UserController extends Controller
 
     public function isiSaldo(Request $request)
     {
-        $userTarget = DB::table('users')->where('id_user', '1');
+        $userTarget = DB::table('users')->where('id', Auth::user()->id);
 
 
         $userTarget->update(['saldo' => $userTarget->get()[0]->saldo + $request->value]);
@@ -114,7 +116,7 @@ class UserController extends Controller
     }
 
     public function gantiPassword(Request $request) {
-        $userTarget = DB::table('users')->where('id_user', '1');
+        $userTarget = DB::table('users')->where('id_user', Auth::user()->id);
 
         $userTarget->update(['password' => Hash::make($request->password)]);
 
@@ -122,7 +124,7 @@ class UserController extends Controller
     }
 
     public function gantiInfoAkun(Request $request) {
-        $userTarget = DB::table('users')->where('id_user', '1');
+        $userTarget = DB::table('users')->where('id', Auth::user()->id);
 
         $userTarget->update(['username' => $request->username]);
         $userTarget->update(['nama' => $request->nama]);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class TransaksiController extends Controller
 {
@@ -35,13 +37,13 @@ class TransaksiController extends Controller
     public function create(Request $request)
     {
         // cek apakah saldo cukup
-        $currentSaldo = DB::table('users')->where('id_user', 1)->get()[0]->saldo;
+        $currentSaldo = DB::table('users')->where('id', Auth::user()->id)->get()[0]->saldo;
         // dd($currentSaldo);
         if ($currentSaldo >= $request->nominal) {
             // dd('Pembayaran berhasil.');
             // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
             $transaksi = new Transaksi;
-            $transaksi->id_user = '1';
+            $transaksi->id_user = Auth::user()->id;
             $transaksi->tipe = $request->tipe;
             $transaksi->waktu = '2022/6/3';
             $transaksi->nominal = $request->nominal;
@@ -55,7 +57,7 @@ class TransaksiController extends Controller
             $transaksi->save();
 
             // mengurangi saldo user
-            $userTarget = DB::table('users')->where('id_user', '1');
+            $userTarget = DB::table('users')->where('id', Auth::user()->id);
             $userTarget->update(['saldo' => $userTarget->get()[0]->saldo - $request->nominal]);
 
         } else {
@@ -85,7 +87,7 @@ class TransaksiController extends Controller
     public function show()
     {
         // pembuatan variabel yang menampung tabel 'transaksis' dari database
-        $transaksis = DB::table('transaksis')->get();
+        $transaksis = DB::table('transaksis')->where('id_user', Auth::user()->id)->get();
 
         // me-return data tersebut ke url tertentu dengan variablenya bernama 'transaksis'
         return view('riwayatpembayaran')->with('transaksis', $transaksis);

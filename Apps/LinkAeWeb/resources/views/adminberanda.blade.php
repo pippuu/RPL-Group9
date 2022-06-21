@@ -23,5 +23,8 @@
         <a class="nav-link" href={{ url('/admin/transaksitable') }}>
             <span>Transaksi Table</span>
         </a>
+        <a class="nav-link" href={{ url('/inputpromo') }}>
+            <span>Input Promo</span>
+        </a>
     </body>
 </html>

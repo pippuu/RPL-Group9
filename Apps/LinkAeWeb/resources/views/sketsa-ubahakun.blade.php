@@ -19,16 +19,21 @@
                         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalubahprofile">Ubah Profile</button> -->
                             <div class="card-body">
                                 <div class="row mb-4">
-                                    <label>Username : <!--Auth::user()->nama--></label><br>
-                                    <label>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiNama">Ganti Nama</button--> <br>
-                                    <label>Password &nbsp;: </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiPass">Ganti Password</button--> <br><br>
-                                    <button type="button" class="btn btn-warning center-block" data-bs-toggle="modal" data-bs-target="#modalGantiInfoAkun">Ubah Info Akun</button>                         
+                                    <label>Username : {{$user->username}}</label><br>
+                                    <label>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{$user->nama}} </label> <!--button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiNama">Ganti Nama</button--> <br>
+                                    <!-- <label>Password &nbsp;: {{$user->getAuthPassword()}}</label> button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalGantiPass">Ganti Password</button> -->
+                                    <br><br>
+                                    <button type="button" class="btn btn-warning center-block" data-bs-toggle="modal" data-bs-target="#modalGantiInfoAkun">Ubah Info Akun</button>                      
+                                </div><br/><br/>
+                                <div class="text-center">
+                                    <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
                                 </div>
                             </div>
                         </div>  
                     </div>
                 </div>
-            </div>
+            </div><br>
+            <a style="margin-left:10px;" href="/sketsa/pusat-bantuan"><button type="button" class="btn btn-warning">Pusat Bantuan</button></a>
         </div>
         
         <div class="modal fade" id="modalGantiInfoAkun" tabindex="-1" aria-labelledby="modalGantiInfoAkun" aria-hidden="true">
@@ -63,7 +68,9 @@
                     </div>
                 </div>
             </div>
-        </div>                               
+        </div>
+        
+                                    
         <!--tampilan navbar-->
         @include('partials.navbar')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

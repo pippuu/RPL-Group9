@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             // kolom 'id_user' merupakan foreign key yang merujuk ke 'id_user pada tabel users'
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

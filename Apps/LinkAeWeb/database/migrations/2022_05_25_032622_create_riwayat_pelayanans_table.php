@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('riwayat_pelayanans', function (Blueprint $table) {
-        //     $table->id('id_riwayat_pelayanan');
-        //     $table->foreignId('id_cs');
-        //     $table->foreignId('id_user');
-        //     $table->string('date');
-        //     $table->timestamps();
+        Schema::create('riwayat_pelayanans', function (Blueprint $table) {
+            $table->id('id_riwayat_pelayanan');
+            $table->foreignId('id_cs');
+            $table->foreignId('id_user');
+            $table->string('date');
+            $table->timestamps();
 
-        //     $table->foreign('id_user')->references('id')->on('users');
-        //     $table->foreign('id_cs')->references('id_cs')->on('customer_services');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_cs')->references('id_cs')->on('customer_services');
 
-        // });
+        });
     }
 
     /**

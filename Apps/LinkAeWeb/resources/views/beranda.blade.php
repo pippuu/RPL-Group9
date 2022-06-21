@@ -14,13 +14,13 @@
             <input type="text" class="form-control" id="search" placeholder="Cari">
             <div class="identity">
                 <img src="images/Avatar.png">
-                <label>Halo,<label>Nama User <!--Auth::user()->nama--></label></label>
+                <label>Halo,<label>{{$user->nama}}<!--Auth::user()->nama--></label></label>
             </div>
         </div>
 
         <div class="box_information">
                 <label>Saldo LinkAe
-                    <b>Rp <b id="label_Value">20.000 <!--Auth::user()->saldo--></b></b>
+                    <b>Rp <b id="label_Value">{{$user->saldo}} <!--Auth::user()->saldo--></b></b>
                 </label><br>
                 <a href="/sketsa/isi-saldo"><button id="A" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">TopUp Saldo</button></a>
                 <a href="/sketsa/transfer"><button id="B" type="button" class="btn btn-warning" style="color: white; background-color: #FF7A00;;">Transfer</button></a>
