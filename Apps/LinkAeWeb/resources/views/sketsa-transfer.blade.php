@@ -4,9 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="property/transfer_style.css"/>
-        <script type="text/javascript" src="property/universal_script.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Transfer</title>
     </head>
     <style>
@@ -47,16 +49,38 @@
                 </div><br>
                 <div class="form-group">
                     <label>No. Rekening</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="norekening" required>
+                    <input type="number" class="form-control" name="norekening" required>
                 </div><br>
                 <div class="form-group">
                     <label>Nominal</label>
-                    <input type="number" onkeypress="return onlyNumberKey(event)" class="form-control" name="nominal" placeholder="Rp." required>
+                    <input type="number" class="form-control" name="nominal" placeholder="Rp." required>
                 </div><br>
                 <button type="submit" class="btn btn-success">Konfirmasi</button>
                 <button onclick="reBeranda()" type="button" class="btn btn-danger">Batalkan</button>
             </form>
         </div>
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                title: 'Transfer Saldo Berhasil',
+                text: 'Sisa saldo Rp.{{$user->saldo}}',
+                icon: 'success',
+                confirmButtonText: 'Oke',
+                confirmButtonColor: '#FF7A00'
+            })
+            </script>  
+        @endif
+        @if (session('message'))
+            <script>
+                Swal.fire({
+                title: '{{ session('message') }}',
+                text: 'Sisa saldo Rp.{{$user->saldo}}',
+                icon: 'error',
+                confirmButtonText: 'Oke',
+                confirmButtonColor: '#FF7A00'
+            })
+            </script> 
+        @endif
         <!-- Transfer Bank -->
 
         <!--tampilan navbar-->
