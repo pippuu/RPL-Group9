@@ -98,8 +98,7 @@ class UserController extends Controller
         // dd($userTarget->get()[0]->saldo);
         // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
 
-
-        return redirect()->back();
+        return redirect()->back()->with('success', "TopUp Saldo Berhasil");
     }
 
     public function gantiNama(Request $request) {
