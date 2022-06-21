@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.tailwindcss.com"></script>
+
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -26,45 +28,19 @@
                 <button type="submit" class="btn btn-warning" id="submitSaldo" >Konfirmasi Isi Saldo</button>
             </form>
         </div>
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                title: '{{ session('success') }}',
+                text: 'Saldo saat in bertambah Rp.{{$user->saldo}}',
+                icon: 'success',
+                confirmButtonText: 'Oke',
+                confirmButtonColor: '#FF7A00'
+            })
+            </script>  
+        @endif
         <!-- Isi Saldo -->
         <!--tampilan navbar-->
         @include('partials.navbar')
     </body>
-    <script>
-        /*
-        document.querySelector(".btn").addEventListener('click', function(){
-            Swal.fire({
-                title: 'TopUp Saldo Berhasil',
-                text: '',
-                icon: 'success',
-                confirmButtonText: 'Oke'
-            })
-        });*/
-
-        
-        /*
-        onclick="showSwal('success-message')"
-        (function($) {
-            showSwal = function(type) {
-                'use strict';
-                if (type === 'success-message') {
-                swal.fire({
-                    title: 'Congratulations!',
-                    text: 'Saldo telah berhasil terisi',
-                    type: 'success',
-                    button: {
-                    text: "Continue",
-                    value: true,
-                    visible: true,
-                    className: "btn btn-primary"
-                    }
-                })
-
-                }else{
-                    swal("Error occured !");
-                } 
-            }
-
-            })(jQuery);*/
-    </script>
 </html>
