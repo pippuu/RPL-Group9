@@ -74,6 +74,17 @@
                 })
                 </script> 
             @endif
+             @if (session('error'))
+                <script>
+                    Swal.fire({
+                    title: '{{ session('error') }}',
+                    text: 'Pastikan anda isi nominal dengan benar',
+                    icon: 'error',
+                    confirmButtonText: 'Oke',
+                    confirmButtonColor: '#FF7A00'
+                })
+                </script> 
+            @endif
         <!-- Transaksi -->
         <!--tampilan navbar-->
         @include('partials.navbar')
