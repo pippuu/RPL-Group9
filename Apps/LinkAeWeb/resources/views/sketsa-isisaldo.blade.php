@@ -39,6 +39,17 @@
             })
             </script>  
         @endif
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                title: '{{ session('error') }}',
+                text: 'Gagal Topup Saldo, pastikan anda isi nominal dengan benar',
+                icon: 'error',
+                confirmButtonText: 'Oke',
+                confirmButtonColor: '#FF7A00'
+            })
+            </script> 
+        @endif
         <!-- Isi Saldo -->
         <!--tampilan navbar-->
         @include('partials.navbar')
