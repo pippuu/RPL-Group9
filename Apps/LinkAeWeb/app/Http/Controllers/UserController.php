@@ -91,14 +91,17 @@ class UserController extends Controller
 
     public function isiSaldo(Request $request)
     {
-        $userTarget = DB::table('users')->where('id', Auth::user()->id);
-
-
-        $userTarget->update(['saldo' => $userTarget->get()[0]->saldo + $request->value]);
-        // dd($userTarget->get()[0]->saldo);
-        // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
-
-        return redirect()->back()->with('success', "TopUp Saldo Berhasil");
+        #dd($request);
+        $notmin = $request->value;
+        if(!is_numeric($notmin) || $notmin > 0 || $notmin != round($notmin)){
+            $userTarget = DB::table('users')->where('id', Auth::user()->id);
+            $userTarget->update(['saldo' => $userTarget->get()[0]->saldo + $request->value]);
+            // dd($userTarget->get()[0]->saldo);
+            // User::where('id_user', '1')->update(['saldo' => $request->value + select('saldo')]);
+            return redirect()->back()->with('success', "TopUp Saldo Berhasil");
+        } else {
+            return redirect()->back()->with('error', "TopUp Saldo Gagal"); 
+        }
     }
 
     public function gantiNama(Request $request) {
