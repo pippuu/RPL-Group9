@@ -34,37 +34,42 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+     public function create(Request $request)
     {
+        $notmin = $request->nominal;
+        
+        if($notmin > 0){
         // cek apakah saldo cukup
-        $currentSaldo = DB::table('users')->where('id', Auth::user()->id)->get()[0]->saldo;
+            $currentSaldo = DB::table('users')->where('id', Auth::user()->id)->get()[0]->saldo;
         // dd($currentSaldo);
-        if ($currentSaldo >= $request->nominal) {
-            // dd('Pembayaran berhasil.');
-            // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
-            $transaksi = new Transaksi;
-            $transaksi->id_user = Auth::user()->id;
-            $transaksi->tipe = $request->tipe;
-            $transaksi->waktu = '2022/6/3';
-            $transaksi->nominal = $request->nominal;
-            if ($request->tipe == 'Transfer') {
-                $transaksi->keterangan = 'Transfer ke bank ' . $request->banktujuan . ' ke nomor ' . $request->norekening;
+            if ($currentSaldo >= $request->nominal) {
+                // dd('Pembayaran berhasil.');
+                // pembuatan 'Transaksi' baru yang isinya berdasarkan parameter request
+                $transaksi = new Transaksi;
+                $transaksi->id_user = Auth::user()->id;
+                $transaksi->tipe = $request->tipe;
+                $transaksi->waktu = '2022/6/3';
+                $transaksi->nominal = $request->nominal;
+                if ($request->tipe == 'Transfer') {
+                    $transaksi->keterangan = 'Transfer ke bank ' . $request->banktujuan . ' ke nomor ' . $request->norekening;
+                } else {
+                    $transaksi->keterangan = $request->keterangan;
+                }
+
+                // penyimpanan data tersebut ke database
+                $transaksi->save();
+
+                // mengurangi saldo user
+                $userTarget = DB::table('users')->where('id', Auth::user()->id);
+                $userTarget->update(['saldo' => $userTarget->get()[0]->saldo - $request->nominal]);
+                
+                return redirect()->back()->with('success', "Transaksi Berhasil");
             } else {
-                $transaksi->keterangan = $request->keterangan;
+                return redirect()->back()->with('message', "Saldo tidak mencukupi, transaksi anda tidak dilanjutkan"); 
             }
-
-            // penyimpanan data tersebut ke database
-            $transaksi->save();
-
-            // mengurangi saldo user
-            $userTarget = DB::table('users')->where('id', Auth::user()->id);
-            $userTarget->update(['saldo' => $userTarget->get()[0]->saldo - $request->nominal]);
-            
-             return redirect()->back()->with('success', "Transaksi Berhasil");
         } else {
-             return redirect()->back()->with('message', "Saldo tidak mencukupi, transaksi anda tidak dilanjutkan");  
+            return redirect()->back()->with('error', "Trasaksi Gagal");
         }
-
         return redirect()->back();
     }
 
